@@ -1,12 +1,11 @@
-const regionNames = [];
 let totalMachines = 0;
 let regionWithMoreMachines;
 let regionWithFewerMachines;
 let maxMachines = 0;
 let minMachines = -1;
-let n = parseInt(prompt('Ingrese cantidad de regiones'));
+let n = parseInt(prompt('Ingrese un número de regiones'));
 const URL = 'https://pinballmap.com/api/v1/';
-let promedio;
+let average;
 
 const getRegions = async (n) => {
   const request = await fetch(`${URL}regions.json`);
@@ -21,9 +20,9 @@ const main = async (info) => {
     await getDataByRegion(info[i].name, info[i].full_name);
   }
   console.log('Estadísticas:');
-  console.log('******************************************');
+  console.log('**************************************************');
   console.log('Cantidad de máquinas: ', totalMachines);
-  console.log('Promedio de máquinas: ', totalMachines / n);
+  console.log('average de máquinas: ', totalMachines / n);
   console.log('Ubicación con mayor cantidad de máquinas: ', regionWithMoreMachines);
   console.log('Ubicación con menor cantidad de máquinas: ', regionWithFewerMachines);
 };
